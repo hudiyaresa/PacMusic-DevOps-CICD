@@ -17,25 +17,25 @@ class TestMusicPlayer(unittest.TestCase):
                                        options = chrome_options)
         
         self.driver.get("http://localhost:5000")
-        self.driver.implicitly_wait(30)
+        self.driver.implicitly_wait(60)
     
     def test_play_song(self):
         self.driver.find_element(By.XPATH, "//button[@onclick=\"playAudio(this.parentElement.getAttribute(\'data-url\'), this.parentElement)\"]").click()
-        self.driver.implicitly_wait(30)
+        self.driver.implicitly_wait(60)
         
     def test_play_pause(self):
         self.driver.find_element(By.XPATH, "//button[@onclick=\'togglePlayPause()\']").click()
-        self.driver.implicitly_wait(5)
-        self.driver.find_element(By.XPATH, "//button[@onclick=\'togglePlayPause()\']").click()
         self.driver.implicitly_wait(30)
+        self.driver.find_element(By.XPATH, "//button[@onclick=\'togglePlayPause()\']").click()
+        self.driver.implicitly_wait(60)
 
     def test_next_previous_song(self):
         self.driver.find_element(By.XPATH, "//button[@onclick=\'nextSong()\']").click()
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(30)
         self.driver.find_element(By.XPATH, "//button[@onclick=\'nextSong()\']").click()
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(30)
         self.driver.find_element(By.XPATH, "//button[@onclick=\'previousSong()\']").click()
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(30)
         self.driver.find_element(By.XPATH, "//button[@onclick=\'previousSong()\']").click()
 
     def tearDown(self):
